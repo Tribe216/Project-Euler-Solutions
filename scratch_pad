@@ -1,0 +1,33 @@
+plan:
+
+0-9 : 10*1
+10-99 : 100*2
+100-999 : 1000*3
+1000-9999 : 10000*4
+
+d1000:
+d15:
+
+place=0
+10* 1
+less than 15?
+    if yes,
+    
+0 1 2 3 4 5 6 7 8 9 
+1 0 1 1 *1* 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 2 0 2 1
+    
+start i = 0
+   is 10^i < n?
+    place += 10^i
+    i += 1
+
+    else
+    get difference between place and n = rem
+    we know that each number length will be i+1
+    so num = 10^i + rem/(i+1)
+    num.to_s[rem % (i+1)]
+
+
+d = num % 
+    
+    

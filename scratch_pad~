@@ -1,0 +1,28 @@
+plan:
+
+0-9 : 10*1
+10-99 : 100*2
+100-999 : 1000*3
+1000-9999 : 10000*4
+
+d1000:
+d15:
+
+place=0
+10* 1
+less than 15?
+    if yes,
+    
+
+start i = 0
+   is 10^i < n?
+    place += 10^i
+    i += 1
+
+    else
+    get difference between place and n = rem
+    we know that each number length will be i+1
+    so num = 10^i + rem/(i+1)
+d = num % 
+    
+    
