@@ -21,14 +21,14 @@ def get_primes_up_to_max(max_num)
     return primes_set.sort.to_a
 end
 
-TOTAL_PRIMES = get_primes_up_to_max(100000)
+TOTAL_PRIMES = get_primes_up_to_max(1000000)
 t_primes = Set.new
 
 def is_truncable?(num)
     num_str = num.to_s
-    0.upto(max_num.length-2) do [offset]
-        unless TOTAL_PRIMES.include? num_str[0..offset]
-            && TOTAL_PRIMES.include? num_str[(offset+1)..(max_num.length-1)]
+    0.upto(num_str.length-2) do |offset|
+        unless (TOTAL_PRIMES.include?(num_str[0..offset].to_i) &&
+                TOTAL_PRIMES.include?(num_str[(offset+1)..(num_str.length-1)].to_i))
             return false
         end
     end
@@ -37,18 +37,18 @@ def is_truncable?(num)
 end
 
 
-end
-
 running_count = 0
 running_sum = 0
 
 TOTAL_PRIMES.each do |p|
     next if p < 10
     if is_truncable?(p)
+        puts p
         running_count +=1
         running_sum += p
     end
     if running_count == 11
+        puts "-------"
         puts running_sum
         break
     end
