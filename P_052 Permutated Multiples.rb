@@ -1,17 +1,25 @@
-require 'set'
+def factorial(num) 
+    return num.downto(1).inject(:*) 
+end
 
-1.upto 100000000 do |num|
-    num = ("1" + num.to_s).to_i
-    perm = true
-    2.upto 6 do |mult|
-        if (num*mult).to_s.split("").sort != num.to_s.split("").sort
-            perm = false
+def combos(n,r)
+    return (factorial(n) / (factorial(r) * factorial(n-r)))
+end
+
+
+master_counter = 0
+2.upto 100 do |n|
+    (n/2).downto(1) do |r|
+        if combos(n,r) > 1000000
+            if r*2 == n
+                master_counter += 1
+            else
+                master_counter += 2
+            end
+        else
             break
         end
     end
-
-    if perm
-        puts num
-        break
-    end
 end
+
+puts master_counter
