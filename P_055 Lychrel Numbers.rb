@@ -9,7 +9,7 @@ l_counter = 0
 
     1.upto(50) do |_|
         num_str = start_num.to_s
-        start_num = reverse_and_add(start_num)
+        start_num = reverse_and_add(num_str)
         if start_num == start_num.reverse
             l_indicator = false
             break
